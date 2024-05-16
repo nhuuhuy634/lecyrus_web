@@ -21,18 +21,18 @@ const path = require("path");
 // '/admin' serve the files at client-admin/build/* as static files
 app.use(
   "/admin",
-  express.static(path.resolve(__dirname, "../client-admin/build"))
+  express.static(path.resolve(__dirname, "../client-admin/public"))
 );
 app.get("admin/*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "../client-admin/build", "index.html"));
+  res.sendFile(path.resolve(__dirname, "../client-admin/public", "index.html"));
 });
 // '/' serve the files at client-customer/build/* as static files
 app.use(
   "/",
-  express.static(path.resolve(__dirname, "../client-customer/build"))
+  express.static(path.resolve(__dirname, "../client-customer/public"))
 );
 app.get("*", (req, res) => {
   res.sendFile(
-    path.resolve(__dirname, "../client-customer/build", "index.html")
+    path.resolve(__dirname, "../client-customer/public", "index.html")
   );
 });
